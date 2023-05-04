@@ -17,9 +17,11 @@ class ProductFactory extends Factory
      */
     public function definition(): array
     {
+        $fake = \Faker\Factory::create('pt_br');
+
         return [
-            'name' => Str::random(10),
-            'description' => 'Produto para venda.'
+            'name' => $fake->unique()->city(),
+            'description' => $fake->text(),
         ];
     }
 }
