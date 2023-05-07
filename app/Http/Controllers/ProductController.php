@@ -39,7 +39,7 @@ class ProductController extends Controller
         $product->save();
 
 
-        return redirect('/product');
+        return redirect('/product')->with('msg', 'Produto criado com sucesso!')->with('product',$product);
     }
 
     /**
@@ -54,17 +54,25 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Product $product)
+    public function edit($id)
     {
-        //
+
+        $product = Product::findOrFail($id);
+        return view('product.edit', ['product' => $product]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProductRequest $request, Product $product)
+    public function update(Request $request)
     {
-        //
+        $product = Product::findOrFail($request);
+        $product->name = $request->name;
+        $product->description = $request->description;
+
+        $product->save();
+
+        return redirect('/product')->with('msg', 'Produto alterado com sucesso!')->with('product',$product);
     }
 
     /**
