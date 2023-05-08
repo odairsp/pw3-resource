@@ -16,7 +16,7 @@
     </header>
     @yield('main')
     <footer>
-        <div class=" p-3 bg-dark position-absolute w-100">
+        <div class=" p-3 bg-dark bottom-0 w-100">
             <p class="text-center text-light">By Odair</p>
         </div>
 

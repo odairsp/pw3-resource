@@ -27,7 +27,9 @@
 
 
 <div class="container d-flex flex-wrap w-100 justify-content-center">
-
+    @if (count($products)==0)
+    
+    @else
     @foreach ($products as $product)
     <div class="card m-2" style="width: 18rem;">
         <div class="card-body">
@@ -54,6 +56,8 @@
 
     </div>
     @endforeach
+    @endif
+
 </div>
 
 
