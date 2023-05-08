@@ -6,6 +6,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use Illuminate\Console\View\Components\Alert;
 use PhpParser\Node\Stmt\Return_;
 
 class ProductController extends Controller
@@ -39,7 +40,7 @@ class ProductController extends Controller
         $product->save();
 
 
-        return redirect('/product')->with('msg', 'Produto criado com sucesso!')->with('product',$product);
+        return redirect('/product')->with('msg', 'Produto criado com sucesso!')->with('product', $product);
     }
 
     /**
@@ -64,22 +65,25 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request)
+    public function update(Request $request,  string $id)
     {
-        $product = Product::findOrFail($request);
+        $product = Product::findOrFail($id);
         $product->name = $request->name;
         $product->description = $request->description;
 
-        $product->save();
+        $product->update();
 
-        return redirect('/product')->with('msg', 'Produto alterado com sucesso!')->with('product',$product);
+        return redirect('/products')->with('msg', 'Produto alterado com sucesso!')->with('product', $product);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Product $product)
+    public function destroy(string $id)
     {
-        //
+        $product = Product::findOrFail($id);
+
+        $product->delete();
+        return redirect('/products')->with('msg', 'Produto Excluido com sucesso!')->with('product', $product);
     }
 }
