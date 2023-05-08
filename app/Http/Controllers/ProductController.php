@@ -6,6 +6,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use GuzzleHttp\Handler\Proxy;
 use Illuminate\Console\View\Components\Alert;
 use PhpParser\Node\Stmt\Return_;
 
@@ -40,7 +41,7 @@ class ProductController extends Controller
         $product->save();
 
 
-        return redirect('/product')->with('msg', 'Produto criado com sucesso!')->with('product', $product);
+        return redirect('/products')->with('msg', 'Produto criado com sucesso!')->with('product', $product);
     }
 
     /**
@@ -81,9 +82,11 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        $product = Product::findOrFail($id);
+
+        $product = Product::find($id);
 
         $product->delete();
-        return redirect('/products')->with('msg', 'Produto Excluido com sucesso!')->with('product', $product);
+
+        return redirect('/products')->with('alert', 'Produto excluido com sucesso!')->with('product', $product);
     }
 }
