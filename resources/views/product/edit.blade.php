@@ -26,7 +26,7 @@
                     <p class="card-text w-100 text-center">
                         <textarea class="w-100 " type="text" required name="description">{{ $product->description }}</textarea>
                     </p>
-                    <button class="btn btn-primary" type="submit">{{ $product->id }} - Salvar</button>
+                    <button class="btn btn-primary" type="submit">Salvar</button>
                 </form>
             </div>
         </div>

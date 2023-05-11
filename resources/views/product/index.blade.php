@@ -34,7 +34,7 @@
             @foreach ($products as $product)
                 <div class="card m-2" style="width: 18rem;">
                     <div class="card-body">
-                        <h4 class="card-title">{{ $product->name }}</h4>
+                        <h4 class="card-title">{{ $product->id}} - {{ $product->name }}</h4>
                         <p class="card-text">{{ $product->description }}</p>
                     </div>
                     <div class="d-flex flex-row justify-content-center pb-2">
@@ -50,7 +50,7 @@
                             @csrf
 
                             <button class="btn btn-sm btn-danger ms-2"
-                                onclick="if(confirm('Deseja realmente excluir?')){if(confirm('Deseja realmente excluir?')){}else{return false;}}else{return false;}"
+                                onclick="if(confirm('Deseja realmente excluir?')){if(confirm('Tem certeza?')){}else{return false;}}else{return false;}"
                                 type="submit">Excluir</button>
 
                         </form>
