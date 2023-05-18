@@ -20,8 +20,9 @@ class ProductFactory extends Factory
         $fake = \Faker\Factory::create('pt_br');
 
         return [
-            'name' => $fake->unique()->city(),
+            'name' => $fake->unique()->company(),
             'description' => $fake->text(),
+            'category'=> $fake->city(),
         ];
     }
 }
