@@ -52,7 +52,7 @@
                 @csrf
 
                             <button class="btn btn-sm btn-danger ms-2"
-                                onclick="if(confirm('Deseja realmente excluir?')){if(confirm('Deseja realmente excluir?')){}else{return false;}}else{return false;}"
+                                onclick="if(confirm('Deseja realmente excluir?')){if(confirm('Tem certeza?')){}else{return false;}}else{return false;}"
                                 type="submit">Excluir</button>
 
             </form>
