@@ -12,6 +12,7 @@
 
         <div class="card m-2 text-center" style="width: 20rem;height: 26rem;">
             <div class="card-body">
+                <h5 class="card-title border-botton border-primary">{{$product->category}}</h5><hr>
                 <h4 class="card-title">{{ $product->name }}</h4>
                 <p class="card-text text-center">{{ $product->description }}</p>
 
