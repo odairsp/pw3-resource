@@ -34,29 +34,16 @@
     @foreach ($products as $product)
     <div class="card m-2" style="width: 18rem;">
         <div class="card-body">
+            <h5 class="card-title">{{$product->category}}</h5><hr>
             <h4 class="card-title">{{ $product->name }}</h4>
+
             <p class="card-text">{{ $product->description }}</p>
         </div>
         <div class="d-flex flex-row justify-content-center pb-2">
 
-            <a href="{{route('products.show',$product->id)}}" class="btn btn-sm btn-success px-3">Ver</a>
+            <a href="{{route('products.show',$product->id)}}" class="btn btn-sm btn-success px-5">Ver</a>
 
-            <form action="{{ route('products.edit', $product->id) }}" method="GET">
-                @csrf
-                <button class="btn btn-sm btn-warning ms-2" type="submit">Editar</button>
-
-            </form>
-
-            <form action="{{ route('products.destroy', $product->id) }}" method="POST">
-                @method('delete')
-                @csrf
-
-                            <button class="btn btn-sm btn-danger ms-2"
-                                onclick="if(confirm('Deseja realmente excluir?')){if(confirm('Tem certeza?')){}else{return false;}}else{return false;}"
-                                type="submit">Excluir</button>
-
-            </form>
-
+            
         </div>
 
     </div>
