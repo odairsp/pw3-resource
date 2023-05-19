@@ -34,7 +34,7 @@
     @foreach ($products as $product)
     <div class="card m-2" style="width: 18rem;">
         <div class="card-body">
-            <h5 class="card-title">{{$product->category}}</h5><hr>
+            <h5 class="card-title border-botton border-primary">{{$product->category}}</h5><hr>
             <h4 class="card-title">{{ $product->name }}</h4>
 
             <p class="card-text">{{ $product->description }}</p>
